@@ -2,7 +2,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 function getHumanChoice() {
-    const selection = prompt("Try your hand at Paper Rock Scissors. Type your selection: ");
+    const selection = prompt("Try your hand at Paper Rock Scissors. To being, type your selection: ");
     const humanchoice = selection.toLowerCase();
     console.log("You chose: " + humanchoice);
     return humanchoice;
