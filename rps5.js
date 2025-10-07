@@ -11,6 +11,7 @@ function getHumanChoice() {
 
 function computerChoice() {
     const compSelection = Math.random();
+    console.log (compSelection);
     if (compSelection <= .33) {
         return "rock";
     } else if (compSelection <= .67) {
