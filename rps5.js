@@ -13,10 +13,10 @@ function getComputerScore() {
         return "rock";
     }
     else if (number <= .66) {
-        return "scissors"
+        return "scissors";
     }
     else {
-        return "paper"
+        return "paper";
     }
 }
 
@@ -54,25 +54,22 @@ function playRound(){
         return ("you lose the score is, you: " + userScore + " vs computer: " + computerScore);
     }
     else {
-        return "error, must enter rock, paper, or scissors. refresh browser to play again.";
+        return "error, must enter rock, paper, or scissors with no space or other characters. refresh browser to play again.";
     }
 }
 
 function playGame() {
-    console.log(playRound())
-    console.log(playRound())
-    console.log(playRound())
-    console.log(playRound())
-    console.log(playRound())
-
+for (let i = 0; i < 5; i++) {
+        console.log(playRound());
+    }
     if (userScore > computerScore) {
-        return "congrats! you win!"
+        return "congrats! you win!";
     } 
     else if (userScore < computerScore) {
-        return "you lost the match, try again!"
+        return "you lost the match, try again!";
     }
     else {
-        return "tie score!"
+        return "tie score!";
     }
 }
 
