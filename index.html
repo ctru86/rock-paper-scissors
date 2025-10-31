@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <h1>Try to beat Mr. Roboto 🤖 at rock-paper-scissors. To begin make a selection:</h1>
+    <h1>Try to beat Mr. Roboto 🤖 at rock-paper-scissors. First to five points wins the match.</h1>
         
     <div id = "picker">Choose: 
         <button id = "rock">Rock 🪨</button>
@@ -18,7 +18,7 @@
     <div id = "result">Round Results:</div>
 
     <div id="scoreboard">Scoreboard: 
-        <div id="scoreDisplay">"💓: 0 vs 🤖: 0"</div>
+        <div id="scoreDisplay">💓: 0 vs 🤖: 0</div>
     </div>
 
 <script>
@@ -78,9 +78,40 @@
                 roundResult.appendChild(roundSummary); 
 
                 const scoreDisplay = document.querySelector("#scoreDisplay"); 
-                scoreDisplay.textContent = "💓:" + userScore + "🤖: " + computerScore; 
+                scoreDisplay.textContent = "💓:" + userScore + " vs 🤖: " + computerScore; 
 
+                if (userScore === 5) {
+                        endGame("You win");
+                    } else if (computerScore === 5) {
+                        endGame("Mr. Roboto wins");
+                    }
             }
+
+        function endGame(winner) {
+            const roundResult = document.querySelector("#result");
+            const winnerMsg = document.createElement("h2");
+            winnerMsg.textContent = `${winner} the game!`;
+            roundResult.appendChild(winnerMsg);
+
+            document.querySelectorAll("#picker button").forEach(btn => btn.disabled = true);
+
+            const resetBtn = document.createElement("button");
+            resetBtn.textContent = "Play Again 🔁";
+            resetBtn.style.marginTop = "20px";
+            document.body.appendChild(resetBtn);
+
+            resetBtn.addEventListener("click", () => {
+                userScore = 0;
+                computerScore = 0;
+
+                document.querySelector("#scoreDisplay").textContent = "💓: 0 vs 🤖: 0";
+                document.querySelector("#result").innerHTML = "Round Results:";
+
+                document.querySelectorAll("#picker button").forEach(btn => btn.disabled = false);
+
+                resetBtn.remove();
+    });
+}
 
         
         const buttons = document.querySelectorAll("#picker button");
@@ -94,6 +125,7 @@
 
             });
         });
+
 
 
  </script>
